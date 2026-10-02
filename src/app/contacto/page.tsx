@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
+import { SiteFooter } from "@/components/site-footer";
 import { PageIntro } from "@/components/page-intro";
 import { createPageMetadata } from "@/config/metadata";
 import { siteConfig } from "@/config/site";
@@ -17,6 +18,7 @@ export default function ContactoPage() {
     ?? (process.env.NETLIFY === "true" ? "/" : "");
 
   return (
+    <>
     <main id="contenido">
       <PageIntro
         eyebrow="Contacto"
@@ -43,5 +45,7 @@ export default function ContactoPage() {
         </div>
       </section>
     </main>
+    <SiteFooter />
+    </>
   );
 }

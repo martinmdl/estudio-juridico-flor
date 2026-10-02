@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
 import { faqItems } from "@/config/faq";
 import { createPageMetadata } from "@/config/metadata";
@@ -88,31 +90,37 @@ export default function HomePage() {
       </section>
 
       <section className="team section" id="equipo" aria-labelledby="team-title">
-        <div className="container team-grid">
-          <div className="team-visual" aria-hidden="true">
-            <div className="team-visual-inner">
-              <span className="team-initials">M<span>+</span></span>
-              <span className="team-label">ESTUDIO<br />JURÍDICO</span>
-            </div>
-          </div>
-          <div className="team-copy">
+        <div className="container">
+          <div className="team-heading">
             <SectionEyebrow>Quiénes somos</SectionEyebrow>
             <h2 id="team-title">Un equipo presente en cada <em>paso.</em></h2>
-            {siteConfig.professionals.length > 0 ? (
-              <div className="professional-list">
-                {siteConfig.professionals.map((person) => (
-                  <article className="professional" key={person.name}>
-                    <h3>{person.name}</h3>
-                    <p className="professional-role">{person.role}</p>
-                    <p>{person.bio}</p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p>Los perfiles profesionales y sus antecedentes se publicarán una vez confirmados por sus titulares.</p>
-            )}
-            <Link className="text-link" href="/contacto">Contactar al estudio <span aria-hidden="true">↗</span></Link>
+            <p>Conocé a quienes integran el estudio. Las fotografías y los perfiles se incorporarán cuando estén confirmados.</p>
           </div>
+          <div className="team-cards">
+            {[0, 1].map((index) => {
+              const person = siteConfig.professionals[index];
+              return (
+                <article className="team-card" key={index}>
+                  <div className="team-photo">
+                    {person?.image ? (
+                      <Image src={person.image} alt={person.imageAlt} width={520} height={620} sizes="(max-width: 600px) 100vw, 50vw" />
+                    ) : (
+                      <div className="team-photo-placeholder" role="img" aria-label={`Espacio reservado para la fotografía del integrante ${index + 1}`}>
+                        <span aria-hidden="true">＋</span>
+                        <p>Fotografía pendiente</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="team-card-copy">
+                    <h3>{person?.name || `Integrante ${index + 1}`}</h3>
+                    {person?.role ? <p className="professional-role">{person.role}</p> : null}
+                    {person?.bio ? <p>{person.bio}</p> : null}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <Link className="text-link team-contact-link" href="/contacto">Contactar al estudio <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
 
@@ -153,6 +161,7 @@ export default function HomePage() {
           </div>
           <span className="contact-watermark" aria-hidden="true">M</span>
         </div>
+        <SiteFooter />
       </section>
     </main>
   );
