@@ -4,26 +4,15 @@ import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const metadataBase = siteConfig.url ? new URL(siteConfig.url) : undefined;
-
 export const metadata: Metadata = {
-  metadataBase,
+  metadataBase: siteConfig.url ? new URL(siteConfig.url) : undefined,
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: "%s | " + siteConfig.name,
   },
   description: siteConfig.description,
-  alternates: siteConfig.url ? { canonical: siteConfig.url } : undefined,
-  openGraph: {
-    type: "website",
-    locale: "es_AR",
-    siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url || undefined,
-  },
+  icons: { icon: "/logo-martinez.svg" },
 };
-
 
 export default function RootLayout({
   children,

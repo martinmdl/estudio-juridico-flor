@@ -1,13 +1,13 @@
 /**
  * Fuente única para la información institucional.
- * Reemplazar los valores vacíos únicamente con datos confirmados por el estudio.
+ * Completar los datos pendientes solo con información confirmada por el estudio.
  */
 export const siteConfig = {
-  name: "Estudio Jurídico Flor",
+  name: "Martinez - Estudio Juridico",
   description:
     "Asesoramiento jurídico claro y cercano. Conocé al estudio y contactanos para conversar sobre tu consulta.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
-  email: "",
+  email: "floorr.martinez.21@gmail.com",
   phone: "",
   location: "",
   practiceAreas: [] as { title: string; description: string }[],

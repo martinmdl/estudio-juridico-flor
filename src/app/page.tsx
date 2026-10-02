@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/config/metadata";
+
+export const metadata = createPageMetadata({
+  title: siteConfig.name,
+  description: siteConfig.description,
+  path: "/",
+});
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
@@ -11,22 +18,22 @@ export default function HomePage() {
       <section className="hero" id="inicio" aria-labelledby="hero-title">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <SectionEyebrow>Estudio jurídico · Argentina</SectionEyebrow>
+            <SectionEyebrow>Estudio jurídico</SectionEyebrow>
             <h1 id="hero-title">Claridad para avanzar.<br /><em>Cercanía para decidir.</em></h1>
             <p className="hero-description">
               Asesoramiento jurídico con una mirada humana, comunicación directa
               y atención dedicada a cada consulta.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="#contacto">Conocé el estudio <span aria-hidden="true">↗</span></Link>
-              <Link className="text-link" href="#areas">Explorar áreas <span aria-hidden="true">↓</span></Link>
+              <Link className="button button-primary" href="/estudio">Conocé el estudio <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href="/areas">Explorar áreas <span aria-hidden="true">↓</span></Link>
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">
             <div className="art-frame">
               <div className="art-disc" />
               <div className="art-column" />
-              <div className="art-caption">Estudio jurídico<br />Flor</div>
+              <div className="art-caption">Estudio jurídico<br />Martinez</div>
               <span className="art-number">01</span>
             </div>
             <span className="art-note">EST. EN ARGENTINA</span>
@@ -52,7 +59,7 @@ export default function HomePage() {
               con información y confianza.
             </p>
             <p className="content-note">Texto institucional preliminar: revisar con el estudio antes de publicar.</p>
-            <Link className="text-link" href="#equipo">Conocé al equipo <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href="/equipo">Conocé al equipo <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
@@ -73,7 +80,7 @@ export default function HomePage() {
                   <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{area.title}</h3>
                   <p>{area.description}</p>
-                  <Link href="#contacto" aria-label={`Consultar sobre ${area.title}`}>Consultar <span aria-hidden="true">↗</span></Link>
+                  <Link href="/contacto" aria-label={`Consultar sobre ${area.title}`}>Consultar <span aria-hidden="true">↗</span></Link>
                 </article>
               ))}
             </div>
@@ -93,7 +100,7 @@ export default function HomePage() {
         <div className="container team-grid">
           <div className="team-visual" aria-hidden="true">
             <div className="team-visual-inner">
-              <span className="team-initials">F<span>+</span></span>
+              <span className="team-initials">M<span>+</span></span>
               <span className="team-label">ESTUDIO<br />JURÍDICO</span>
             </div>
           </div>
@@ -113,7 +120,7 @@ export default function HomePage() {
             ) : (
               <p>Los perfiles profesionales y sus antecedentes se publicarán una vez confirmados por sus titulares.</p>
             )}
-            <Link className="text-link" href="#contacto">Contactar al estudio <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href="/contacto">Contactar al estudio <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
@@ -126,14 +133,11 @@ export default function HomePage() {
             <p>Escribinos para coordinar una primera conversación.</p>
           </div>
           <div className="contact-action">
-            {siteConfig.email ? (
-              <a className="button button-light" href={`mailto:${siteConfig.email}`}>Enviar un email <span aria-hidden="true">↗</span></a>
-            ) : (
-              <p className="content-note">Email y teléfono pendientes de confirmar antes de publicar.</p>
-            )}
+            <Link className="button button-light" href="/contacto">Ir a contacto <span aria-hidden="true">↗</span></Link>
+            <a className="contact-home-email" href={"mailto:" + siteConfig.email}>{siteConfig.email}</a>
             {siteConfig.location ? <p className="contact-detail">{siteConfig.location}</p> : null}
           </div>
-          <span className="contact-watermark" aria-hidden="true">F</span>
+          <span className="contact-watermark" aria-hidden="true">M</span>
         </div>
       </section>
     </main>
