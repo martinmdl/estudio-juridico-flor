@@ -1,31 +1,47 @@
-# Estudio Jurídico Flor
+# Martinez - Estudio Juridico
 
-Sitio institucional en Next.js App Router, React y TypeScript. La primera versión prioriza contenido renderizado en servidor, CSS nativo y una estructura simple.
-
-## Requisitos
-
-- Node.js 20.9 o superior
-- npm
+Sitio institucional estático en Next.js App Router, React y TypeScript. La portada reúne las secciones del estudio, áreas, equipo y preguntas frecuentes. Contacto vive en `/contacto`.
 
 ## Desarrollo
+
+Requiere Node.js 20.9 o superior y npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrí http://localhost:3000.
+Abrí http://localhost:3000. El formulario aparece deshabilitado en desarrollo hasta que se configure un servicio de envío.
 
-## Estructura
+## Contenido y diseño
 
-- `src/app/`: páginas, layout y archivos SEO
-- `src/components/`: componentes compartidos del sitio
-- `src/config/site.ts`: contenido y datos del estudio
-- `src/app/globals.css`: tokens visuales y estilos responsivos
-- `public/images/`: imágenes optimizadas del estudio
+- `src/config/site.ts`: nombre, correo, profesionales y áreas de práctica.
+- `src/config/faq.ts`: preguntas frecuentes.
+- `src/app/globals.css`: paleta, tipografías, tamaños y demás tokens visuales.
+- `public/logo-martinez.svg`: logo vectorial optimizado.
+- `src/app/`: páginas y metadatos.
 
-Antes de publicar, completar y verificar los datos de contacto, profesionales, jurisdicción, áreas de práctica, dominio y fotografías. No presentar como reales los valores de ejemplo.
+El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confirmar textos institucionales, profesionales, ubicación y dominio. La primera foto de Equipo fue aportada por el estudio y está optimizada en `public/images/team-flor.webp`. La segunda foto y los perfiles siguen pendientes; completarlos en `src/config/site.ts` antes de publicar.
 
-## Diseño y contenido
+## Formulario de contacto
 
-Los colores, tipografías, espaciados y demás decisiones visuales globales viven en `src/app/globals.css`. La información institucional vive en `src/config/site.ts` para evitar duplicarla en componentes.
+En Netlify, `public/contact-form.html` permite detectar el formulario `contacto` durante el despliegue. La página `/contacto` envía los campos a `/contact-form.html` mediante POST en formato `application/x-www-form-urlencoded`. Una vez desplegado:
+
+1. Confirmar que el formulario `contacto` aparece en **Forms** de Netlify.
+2. En **Forms > Submission notifications**, crear una notificación por email para `floorr.martinez.21@gmail.com`.
+3. Enviar una consulta de prueba desde el sitio publicado y confirmar que llega al correo.
+
+En otro proveedor, definir `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` con la URL pública de un servicio de formularios que acepte POST `application/x-www-form-urlencoded` con los campos `form-name`, `name`, `email`, `area` y `message`. Configurar el destinatario en ese proveedor. No colocar claves privadas en variables `NEXT_PUBLIC_*`.
+
+El sitio no almacena las consultas. La entrega real depende del proveedor elegido y su configuración. El email directo sigue disponible como alternativa.
+
+## SEO
+
+Configurar `NEXT_PUBLIC_SITE_URL` con el dominio final para habilitar las URLs canónicas y el sitemap. Ver `.env.example`.
+
+## Calidad
+
+```bash
+npm run lint
+npm run build
+```

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Formulario de contacto</title></head>
+<body>
+  <!-- Netlify detecta los campos en este HTML estático al desplegar Next.js. -->
+  <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contacto">
+    <input type="text" name="bot-field">
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <select name="area"><option value="Otra consulta">Otra consulta</option></select>
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>
