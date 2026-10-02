@@ -104,9 +104,7 @@ a {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid rgb(32 42 39 / 9%);
-  background: color-mix(in srgb, var(--color-paper) 78%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--color-paper);
 }
 
 .header-inner,
@@ -541,6 +539,18 @@ h2 {
   object-fit: cover;
 }
 
+.team-photo-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border: 1px dashed var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 .team-card-copy {
   padding: var(--space-2) 0;
 }
@@ -568,10 +578,6 @@ h2 {
   display: flex;
   width: fit-content;
   margin: var(--space-3) auto 0;
-}
-
-.team-image-note {
-  font-size: 0.82rem;
 }
 
 .contact {

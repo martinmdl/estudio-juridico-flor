@@ -21,7 +21,7 @@ Abrí http://localhost:3000. El formulario aparece deshabilitado en desarrollo h
 - `public/logo-martinez.svg`: logo vectorial optimizado.
 - `src/app/`: páginas y metadatos.
 
-El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confirmar textos institucionales, profesionales, ubicación y dominio. Las dos fotos actuales de Equipo son retratos ilustrativos generados para previsualizar el diseño; reemplazarlas por fotos reales optimizadas en `public/images/` y completar los perfiles en `src/config/site.ts`.
+El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confirmar textos institucionales, profesionales, ubicación y dominio. La primera foto de Equipo fue aportada por el estudio y está optimizada en `public/images/team-flor.webp`. La segunda foto y los perfiles siguen pendientes; completarlos en `src/config/site.ts` antes de publicar.
 
 ## Formulario de contacto
 

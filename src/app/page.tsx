@@ -94,25 +94,32 @@ export default function HomePage() {
           <div className="team-heading">
             <SectionEyebrow>Quiénes somos</SectionEyebrow>
             <h2 id="team-title">Un equipo presente en cada <em>paso.</em></h2>
-            <p>Una atención cercana y dedicada. Los nombres, perfiles y retratos reales se incorporarán cuando estén confirmados.</p>
+            <p>Una atención cercana y dedicada para acompañarte en cada etapa.</p>
           </div>
           <div className="team-cards">
             {[0, 1].map((index) => {
               const person = siteConfig.professionals[index];
+              const photo = person?.image || (index === 0 ? "/images/team-flor.webp" : "");
               return (
                 <article className="team-card" key={index}>
                   <div className="team-photo">
-                    <Image
-                      src={person?.image || `/images/team-preview-${index + 1}.webp`}
-                      alt={person?.image ? person.imageAlt : `Retrato ilustrativo del integrante ${index + 1}`}
-                      width={480}
-                      height={600}
-                      sizes="(max-width: 600px) 44vw, 300px"
-                    />
+                    {photo ? (
+                      <Image
+                        src={photo}
+                        alt={person?.image ? person.imageAlt : "Fotografía de una integrante del estudio"}
+                        width={480}
+                        height={600}
+                        sizes="(max-width: 600px) 44vw, 300px"
+                      />
+                    ) : (
+                      <div className="team-photo-placeholder" role="img" aria-label="Espacio reservado para la fotografía del segundo integrante">
+                        Insertar foto
+                      </div>
+                    )}
                   </div>
                   <div className="team-card-copy">
                     <h3>{person?.name || `Integrante ${index + 1}`}</h3>
-                    {person?.role ? <p className="professional-role">{person.role}</p> : <p className="team-image-note">Imagen ilustrativa</p>}
+                    {person?.role ? <p className="professional-role">{person.role}</p> : null}
                     {person?.bio ? <p>{person.bio}</p> : null}
                   </div>
                 </article>
