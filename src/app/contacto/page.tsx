@@ -14,7 +14,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function ContactoPage() {
   // Netlify habilita Forms al desplegar; otros hosts requieren un endpoint compatible.
   const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT
-    ?? (process.env.NETLIFY === "true" ? "/" : "");
+    ?? (process.env.NETLIFY === "true" ? "/contact-form.html" : "");
 
   return (
     <>

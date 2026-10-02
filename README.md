@@ -25,7 +25,7 @@ El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confir
 
 ## Formulario de contacto
 
-En Netlify, `public/contact-form.html` permite detectar el formulario `contacto` durante el despliegue. La página `/contacto` envía los campos mediante POST en formato `application/x-www-form-urlencoded`. Una vez desplegado:
+En Netlify, `public/contact-form.html` permite detectar el formulario `contacto` durante el despliegue. La página `/contacto` envía los campos a `/contact-form.html` mediante POST en formato `application/x-www-form-urlencoded`. Una vez desplegado:
 
 1. Confirmar que el formulario `contacto` aparece en **Forms** de Netlify.
 2. En **Forms > Submission notifications**, crear una notificación por email para `floorr.martinez.21@gmail.com`.

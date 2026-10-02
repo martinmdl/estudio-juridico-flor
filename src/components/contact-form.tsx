@@ -41,7 +41,7 @@ export function ContactForm({ endpoint }: ContactFormProps) {
   }
 
   return (
-    <form className="contact-form" name="contacto" method="POST" action={endpoint || undefined} onSubmit={handleSubmit}>
+    <form className="contact-form" name="contacto" method="POST" action={endpoint || undefined} data-netlify="true" onSubmit={handleSubmit}>
       <input type="hidden" name="form-name" value="contacto" />
       <div className="honeypot" aria-hidden="true">
         <label htmlFor="bot-field">Dejá este campo vacío</label>
