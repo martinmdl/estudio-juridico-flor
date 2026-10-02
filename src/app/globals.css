@@ -55,6 +55,15 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+.button:active,
+.text-link:active,
+.nav-list a:active,
+.header-contact:active,
+.area-card a:active,
+.footer-inner a:active {
+  transform: translateY(1px);
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
