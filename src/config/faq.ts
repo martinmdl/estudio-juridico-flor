@@ -4,9 +4,9 @@ export const faqItems = [
   {
     question: "¿Cómo puedo comunicarme con el estudio?",
     answer:
-      "Podés escribir a " +
+      "Podés usar el formulario de contacto o escribir a " +
       siteConfig.email +
-      " y contar brevemente el motivo de tu consulta. Podés pedir información sobre los próximos pasos.",
+      " y contar brevemente el motivo de tu consulta.",
   },
   {
     question: "¿Qué información conviene incluir en el primer mensaje?",
@@ -21,7 +21,7 @@ export const faqItems = [
   {
     question: "¿Qué temas atiende el estudio?",
     answer:
-      "Las áreas de práctica se publicarán cuando el estudio las confirme. Mientras tanto, podés escribir para consultar si pueden orientarte sobre tu situación.",
+      "El estudio recibe consultas sobre divorcios, sucesiones, derecho laboral, alimentos y trámites. Escribinos para saber si podemos acompañarte en tu situación.",
   },
   {
     question: "¿La información del sitio reemplaza el asesoramiento profesional?",

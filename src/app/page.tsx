@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { faqItems } from "@/config/faq";
 import { createPageMetadata } from "@/config/metadata";
 
 export const metadata = createPageMetadata({
@@ -25,8 +26,8 @@ export default function HomePage() {
               y atención dedicada a cada consulta.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="/estudio">Conocé el estudio <span aria-hidden="true">↗</span></Link>
-              <Link className="text-link" href="/areas">Explorar áreas <span aria-hidden="true">↓</span></Link>
+              <Link className="button button-primary" href="/#estudio">Conocé el estudio <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href="/#areas">Explorar áreas <span aria-hidden="true">↓</span></Link>
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">
@@ -59,7 +60,7 @@ export default function HomePage() {
               con información y confianza.
             </p>
             <p className="content-note">Texto institucional preliminar: revisar con el estudio antes de publicar.</p>
-            <Link className="text-link" href="/equipo">Conocé al equipo <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href="/#equipo">Conocé al equipo <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
@@ -73,26 +74,16 @@ export default function HomePage() {
             </div>
             <p>Una atención enfocada en comprender cada situación y explicar los próximos pasos.</p>
           </div>
-          {siteConfig.practiceAreas.length > 0 ? (
-            <div className="area-grid">
-              {siteConfig.practiceAreas.map((area, index) => (
-                <article className="area-card" key={area.title}>
-                  <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{area.title}</h3>
-                  <p>{area.description}</p>
-                  <Link href="/contacto" aria-label={`Consultar sobre ${area.title}`}>Consultar <span aria-hidden="true">↗</span></Link>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="content-placeholder">
-              <span className="placeholder-mark" aria-hidden="true">+</span>
-              <div>
-                <h3>Áreas de práctica</h3>
-                <p>Las especialidades se incorporarán cuando estén confirmadas por el estudio.</p>
-              </div>
-            </div>
-          )}
+          <div className="area-grid">
+            {siteConfig.practiceAreas.map((area, index) => (
+              <article className="area-card" key={area.title}>
+                <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{area.title}</h3>
+                <p>{area.description}</p>
+                <Link href="/contacto" aria-label={`Consultar sobre ${area.title}`}>Consultar <span aria-hidden="true">↗</span></Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -125,7 +116,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="contact section" id="contacto" aria-labelledby="contact-title">
+      <section className="faq section" id="preguntas-frecuentes" aria-labelledby="faq-title">
+        <div className="container faq-layout">
+          <div>
+            <SectionEyebrow>Preguntas frecuentes</SectionEyebrow>
+            <h2 id="faq-title">Respuestas para empezar con <em>claridad.</em></h2>
+            <div className="faq-list">
+              {faqItems.map((item) => (
+                <details className="faq-item" key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+          <aside className="faq-aside">
+            <p className="eyebrow">Tu consulta</p>
+            <h3>¿Tenés otra pregunta?</h3>
+            <p>Contanos lo esencial de tu situación y cómo podemos contactarte.</p>
+            <Link className="text-link" href="/contacto">Escribinos <span aria-hidden="true">↗</span></Link>
+          </aside>
+        </div>
+      </section>
+
+      <section className="contact section" aria-labelledby="contact-title">
         <div className="container contact-panel">
           <div>
             <SectionEyebrow>Contacto</SectionEyebrow>

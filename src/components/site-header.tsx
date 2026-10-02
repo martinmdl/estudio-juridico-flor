@@ -3,10 +3,10 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
 const navigation = [
-  { href: "/estudio", label: "El estudio" },
-  { href: "/areas", label: "Áreas" },
-  { href: "/equipo", label: "Equipo" },
-  { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
+  { href: "/#estudio", label: "El estudio" },
+  { href: "/#areas", label: "Áreas" },
+  { href: "/#equipo", label: "Equipo" },
+  { href: "/#preguntas-frecuentes", label: "Preguntas frecuentes" },
   { href: "/contacto", label: "Contacto" },
 ];
 

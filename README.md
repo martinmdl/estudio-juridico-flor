@@ -1,6 +1,6 @@
 # Martinez - Estudio Juridico
 
-Sitio institucional en Next.js App Router, React y TypeScript. La primera versión usa componentes de servidor, CSS nativo y una estructura simple.
+Sitio institucional en Next.js App Router, React y TypeScript. La portada reúne las secciones del estudio, áreas, equipo y preguntas frecuentes. Contacto vive en `/contacto`.
 
 ## Desarrollo
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Abrí http://localhost:3000.
+Abrí http://localhost:3000. El formulario aparece deshabilitado en desarrollo hasta que se configure un servicio de envío.
 
 ## Contenido y diseño
 
@@ -21,7 +21,19 @@ Abrí http://localhost:3000.
 - `public/logo-martinez.svg`: logo vectorial optimizado.
 - `src/app/`: páginas y metadatos.
 
-El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confirmar textos institucionales, profesionales, áreas de práctica, ubicación, dominio y fotografías. Las fotos de profesionales deben colocarse en `public/images/`, optimizadas, con las rutas configuradas en `src/config/site.ts`.
+El correo publicado es `floorr.martinez.21@gmail.com`. Antes de publicar, confirmar textos institucionales, profesionales, ubicación, dominio y fotografías. Las fotos de profesionales deben colocarse en `public/images/`, optimizadas, con las rutas configuradas en `src/config/site.ts`.
+
+## Formulario de contacto
+
+En Netlify, `public/contact-form.html` permite detectar el formulario `contacto` durante el despliegue. La página `/contacto` envía los campos mediante POST en formato `application/x-www-form-urlencoded`. Una vez desplegado:
+
+1. Confirmar que el formulario `contacto` aparece en **Forms** de Netlify.
+2. En **Forms > Submission notifications**, crear una notificación por email para `floorr.martinez.21@gmail.com`.
+3. Enviar una consulta de prueba desde el sitio publicado y confirmar que llega al correo.
+
+En otro proveedor, definir `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` con la URL pública de un servicio de formularios que acepte POST `application/x-www-form-urlencoded` con los campos `form-name`, `name`, `email`, `area` y `message`. Configurar el destinatario en ese proveedor. No colocar claves privadas en variables `NEXT_PUBLIC_*`.
+
+El sitio no almacena las consultas. La entrega real depende del proveedor elegido y su configuración. El email directo sigue disponible como alternativa.
 
 ## SEO
 
@@ -33,5 +45,3 @@ Configurar `NEXT_PUBLIC_SITE_URL` con el dominio final para habilitar las URLs c
 npm run lint
 npm run build
 ```
-
-La página de contacto usa `mailto:`. Un formulario que envíe correos automáticamente requiere un servicio de formularios o una función del servidor con credenciales protegidas.
