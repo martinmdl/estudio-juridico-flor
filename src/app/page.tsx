@@ -94,7 +94,7 @@ export default function HomePage() {
           <div className="team-heading">
             <SectionEyebrow>Quiénes somos</SectionEyebrow>
             <h2 id="team-title">Un equipo presente en cada <em>paso.</em></h2>
-            <p>Conocé a quienes integran el estudio. Las fotografías y los perfiles se incorporarán cuando estén confirmados.</p>
+            <p>Una atención cercana y dedicada. Los nombres, perfiles y retratos reales se incorporarán cuando estén confirmados.</p>
           </div>
           <div className="team-cards">
             {[0, 1].map((index) => {
@@ -102,18 +102,17 @@ export default function HomePage() {
               return (
                 <article className="team-card" key={index}>
                   <div className="team-photo">
-                    {person?.image ? (
-                      <Image src={person.image} alt={person.imageAlt} width={520} height={620} sizes="(max-width: 600px) 100vw, 50vw" />
-                    ) : (
-                      <div className="team-photo-placeholder" role="img" aria-label={`Espacio reservado para la fotografía del integrante ${index + 1}`}>
-                        <span aria-hidden="true">＋</span>
-                        <p>Fotografía pendiente</p>
-                      </div>
-                    )}
+                    <Image
+                      src={person?.image || `/images/team-preview-${index + 1}.webp`}
+                      alt={person?.image ? person.imageAlt : `Retrato ilustrativo del integrante ${index + 1}`}
+                      width={480}
+                      height={600}
+                      sizes="(max-width: 600px) 44vw, 300px"
+                    />
                   </div>
                   <div className="team-card-copy">
                     <h3>{person?.name || `Integrante ${index + 1}`}</h3>
-                    {person?.role ? <p className="professional-role">{person.role}</p> : null}
+                    {person?.role ? <p className="professional-role">{person.role}</p> : <p className="team-image-note">Imagen ilustrativa</p>}
                     {person?.bio ? <p>{person.bio}</p> : null}
                   </div>
                 </article>

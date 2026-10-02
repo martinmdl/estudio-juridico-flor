@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
-import { PageIntro } from "@/components/page-intro";
 import { createPageMetadata } from "@/config/metadata";
 import { siteConfig } from "@/config/site";
 
@@ -20,17 +19,12 @@ export default function ContactoPage() {
   return (
     <>
     <main id="contenido">
-      <PageIntro
-        eyebrow="Contacto"
-        title="Conversemos sobre tu consulta."
-        description="Contanos brevemente el motivo de tu mensaje. Si hay un plazo urgente, incluí la fecha."
-      />
       <section className="section page-section" aria-labelledby="contacto-title">
         <div className="container contact-page-grid">
           <div className="contact-side">
             <p className="eyebrow">Escribinos</p>
-            <h2 id="contacto-title">Estamos para <em>escucharte.</em></h2>
-            <p>Completá el formulario y el estudio recibirá tu consulta cuando esté configurado el servicio de envío.</p>
+            <h1 id="contacto-title">Estamos para <em>escucharte.</em></h1>
+            <p>Contanos brevemente el motivo de tu mensaje. Si hay un plazo urgente, incluí la fecha.</p>
             <div className="contact-direct">
               <h3>También podés escribirnos por email</h3>
               <a className="contact-email" href={"mailto:" + siteConfig.email}>{siteConfig.email}</a>
