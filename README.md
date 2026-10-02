@@ -1,6 +1,6 @@
 # Martinez - Estudio Juridico
 
-Sitio institucional en Next.js App Router, React y TypeScript. La portada reúne las secciones del estudio, áreas, equipo y preguntas frecuentes. Contacto vive en `/contacto`.
+Sitio institucional estático en Next.js App Router, React y TypeScript. La portada reúne las secciones del estudio, áreas, equipo y preguntas frecuentes. Contacto vive en `/contacto`.
 
 ## Desarrollo
 
